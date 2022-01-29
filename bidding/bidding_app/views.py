@@ -17,7 +17,8 @@ def get_bidding_page(request, id):
 
 
 def bidding(request):
+	from ipdb import set_trace; set_trace()
 	user = request.user
-	parameter_dict = request.data
+	parameter_dict = request.POST
 	response = services.user_bidding(user, parameter_dict)
 	return redirect('/')

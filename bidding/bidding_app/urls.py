@@ -8,5 +8,6 @@ app_name = 'bidding_app'
 
 urlpatterns = [
 	path('', views.get_bidding_list, name='get_bidding_list'),
-	path('bid/<int:id>/', views.get_bidding_page, name='bid_page')
+	path('bid/<int:id>/', views.get_bidding_page, name='bid_page'),
+	path('bid/bid_action/', views.bidding, name='bidding')
 ]

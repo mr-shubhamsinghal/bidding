@@ -15,4 +15,4 @@ class VendorBidding(models.Model):
 	is_bid = models.BooleanField(default=False)
 
 	def __str__(self):
-		return f'{user}-{service_name}-{value}'
+		return f'{self.user.username}-{self.service_name}-{self.value}'

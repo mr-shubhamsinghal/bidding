@@ -15,9 +15,10 @@ def get_bidding_service(id):
 
 def user_bidding(user, parameter_dict):
 
-	service_name = parameter_dict.get('service_name')
+	service_id = parameter_dict.get('service_name')
 	bid_value = parameter_dict.get('bid_value')
 
+	service_obj = get_bidding_service(service_id)
 	vendor = VendorBidding.objects.create(user=user,
-		     service_name=service_name, value=bid_value)
+		     service_name=service_obj, value=bid_value)
 	vendor.save()
