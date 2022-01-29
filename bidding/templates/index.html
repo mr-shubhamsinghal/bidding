@@ -3,15 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Bidding</title>
+	<title>Home</title>
 </head>
 <body>
 	<h1>Bidding Items List</h1>
-
+	<h2><a href="{% url 'user:login' %}">Login</a></h2>
 	<div>
 	<h3>Want to bid? If yes, Click on service link</h3>
 	{% for item in service_items %}
-		<p><b><a href="#">{{ item }}</a></b></p>
+		<p><b><a href="{% url 'bidding_app:bid_page' id=item.id %}">{{ item.name }}</a></b></p>
 	{% endfor %}
 	</div>
 </body>

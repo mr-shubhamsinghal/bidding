@@ -12,6 +12,7 @@ class VendorBidding(models.Model):
 	user = models.ForeignKey(User, on_delete=models.RESTRICT)
 	service_name = models.ForeignKey(ServiceName, on_delete=models.RESTRICT)
 	value = models.PositiveIntegerField()
+	is_bid = models.BooleanField(default=False)
 
 	def __str__(self):
 		return f'{user}-{service_name}-{value}'
