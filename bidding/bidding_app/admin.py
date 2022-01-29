@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from bidding_app.models import ServiceName, VendorBidding
+
+
+admin.site.register(ServiceName)
+admin.site.register(VendorBidding)
+

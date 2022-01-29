@@ -7,5 +7,12 @@
 </head>
 <body>
 	<h1>Bidding Items List</h1>
+
+	<div>
+	<h3>Want to bid? If yes, Click on service link</h3>
+	{% for item in service_items %}
+		<p><b><a href="#">{{ item }}</a></b></p>
+	{% endfor %}
+	</div>
 </body>
 </html>
