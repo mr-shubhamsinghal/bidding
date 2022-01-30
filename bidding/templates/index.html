@@ -12,9 +12,15 @@
 			<h1>Bidding Items List</h1>
 			<h3>Want to bid? If yes, Click on service link</h3>
 			<div>
-				{% for item in service_items %}
-					<p><b><a href="{% url 'bidding_app:bid_page' id=item.id %}">{{ item.name }}</a></b></p>
-				{% endfor %}
+			{% for item in service_items %}
+			  <p><b>
+			  	{% if request.user.is_superuser %}
+			  	<a href="{% url 'bidding_app:bidding-detail' id=item.id %}">{{ item.name }}</a>
+			  	{% else %}
+				<a href="{% url 'bidding_app:bid_page' id=item.id %}">{{ item.name }}</a>
+			  	{% endif %}
+			  </b></p>
+			{% endfor %}
 			</div>
 		</div>
 		<h1> If no </h1>

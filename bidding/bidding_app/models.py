@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class ServiceName(models.Model):
+class Service(models.Model):
 	name = models.CharField(max_length=255)
 
 	def __str__(self):
@@ -10,9 +10,10 @@ class ServiceName(models.Model):
 
 class VendorBidding(models.Model):
 	user = models.ForeignKey(User, on_delete=models.RESTRICT)
-	service_name = models.ForeignKey(ServiceName, related_name='vendorbidding', on_delete=models.RESTRICT)
-	value = models.PositiveIntegerField()
+	service = models.ForeignKey(Service, related_name='vendorbidding',
+		                        on_delete=models.RESTRICT)
+	value = models.PositiveIntegerField(default=0)
 	is_bid = models.BooleanField(default=False)
 
 	def __str__(self):
-		return f'{self.user.username}-{self.service_name}-{self.value}'
+		return f'{self.user.username}-{self.service}-{self.value}'
