@@ -39,12 +39,3 @@ def user_done_bidding(user, id):
               'service_name': service_obj.name,
               'service_id': service_obj.id}
     return result
-
-
-def get_lowest_bid(data):
-    ans = ''
-
-
-
-def get_highest_bid(data):
-    pass
