@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+from bidding_app.decorators import check_group_permission
 from bidding_app import services
 
 
@@ -11,6 +12,7 @@ def get_bidding_list(request):
     return render(request, 'index.html', data)
 
 
+@check_group_permission('Admin')
 @login_required
 def get_bidding_details(request, id):
     service_obj = services.get_bidding_service(id)
