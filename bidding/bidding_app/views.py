@@ -17,7 +17,8 @@ def get_bidding_list(request):
 def get_bidding_details(request, id):
     service_obj = services.get_bidding_service(id)
     data = services.get_service_bidding_details(service_obj)
-    context = {'vendors': data, 'service_name': service_obj.name}
+    context = {'vendors': data, 'service_name': service_obj.name,
+               'lowest_bid': data[0]}
     template_page = 'services_bidding_detail.html'
     return render(request, template_page, context)
 

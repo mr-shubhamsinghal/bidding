@@ -27,7 +27,7 @@ def user_bidding(user, parameter_dict):
 
 
 def get_service_bidding_details(service_obj):
-    all_vendors = service_obj.vendorbidding.all()
+    all_vendors = service_obj.vendorbidding.filter(is_bid=True).order_by('value')
     return all_vendors
 
 
@@ -39,3 +39,12 @@ def user_done_bidding(user, id):
               'service_name': service_obj.name,
               'service_id': service_obj.id}
     return result
+
+
+def get_lowest_bid(data):
+    ans = ''
+
+
+
+def get_highest_bid(data):
+    pass
